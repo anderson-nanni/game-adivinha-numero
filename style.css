@@ -1,0 +1,46 @@
+body {
+    background: #3199c9;
+    font-family: Verdana;
+
+}
+section {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.322);
+    margin: auto;
+    width: 500px;
+    height: 90vh;
+    
+
+}
+h1 {
+    font-size: 15pt;
+    text-align: center;
+    padding-top: 20px;
+}
+#tirar {
+    margin-left: 35px;
+}
+
+footer,
+header {
+    color: white;
+    text-align: center;
+}
+
+footer {
+    margin: 10px;
+}
+
+
+section div {
+    margin: 25px;
+}
+section p {
+    font:  10pt Verdana;
+    padding: 15px;
+}
+button {
+    padding: 20px;
+    margin-left: 50px;
+}

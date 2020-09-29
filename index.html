@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Acertar numeros</title>
+</head>
+<body>
+    <section>
+        <h1>Adivinhar números</h1>
+        <p id="tirar">Pensei em um valor entre 1 e 100,<br> consegue adivinhar?</p>
+        <button onclick="chutar()">Chutar um número</button>
+        <div id="res">
+
+        </div>
+        <button id="recomecar" hidden onClick="window.location.reload()">Tentar Outra vez</button>
+    </section>
+    <footer>
+        &copy;Anderson
+    </footer>
+    <script>
+        let random;
+        let qtdChutes = 0;
+        function gerarNumero (){
+            random = Math.floor(Math.random() * 100 + 1);
+            console.log(random);
+        }
+        gerarNumero();
+        
+        function chutar (){
+            const res = document.getElementById('res');
+            const pTirar = document.getElementById('tirar');
+            const again = document.getElementById('recomecar');
+            let chute = Number(prompt("Qual seu palpite?"));
+            if (chute === random) {
+                pTirar.innerHTML = '';
+                res.innerHTML = `<p><mark>Parabens!!</mark> Você acertou o numero ${random}.</p>`;
+                res.innerHTML += `<p>Você acertou com ${qtdChutes} chutes, Consegue fazer melhor?</p>`;
+                again.removeAttribute('hidden')
+            } else {
+                qtdChutes++;
+                if (chute > random){
+                    res.innerHTML += `<p>Errrrrouuu, meu número é <strong>MENOR</strong> que ${chute}!</p>`;
+                    // qtdChutes++;
+
+                } else {
+                    res.innerHTML += `<p>Errrrrouuu, meu número é <strong>MAIOR</strong> que ${chute}!</p>`;
+                    // qtdChutes++;
+                }
+                console.log(qtdChutes);
+            }
+        }
+        function again (){
+            res.innerHTML = '';
+            qtdChutes = 0;
+            chutar();
+            // res.innerHTML = '';
+        }
+    </script>
+</body>
+</html>
